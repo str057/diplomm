@@ -39,8 +39,8 @@ jobs:
         pip install -r requirements.txt
         pip install flake8 coverage django-filter
 
-    - name: Run flake8 (with line length ignored for demo)
-      run: flake8 . --count --max-complexity=10 --statistics --exclude=venv,.git,__pycache__,migrations --ignore=E501,W292
+    - name: Run flake8
+      run: flake8 . --count --max-complexity=10 --statistics --exclude=venv,.git,__pycache__,migrations --ignore=E501,W292,W503
 
     - name: Run tests
       env:
