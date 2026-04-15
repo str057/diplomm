@@ -54,6 +54,13 @@ jobs:
         python manage.py test --verbosity=2 --noinput
 
     - name: Check migrations
+      env:
+        DB_NAME: github_actions
+        DB_USER: postgres
+        DB_PASSWORD: postgres
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DEBUG: 1
       run: |
         python manage.py makemigrations --check --dry-run
 
